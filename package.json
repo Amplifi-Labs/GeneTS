@@ -1,11 +1,12 @@
 {
-  "name": "genets",
+  "name": "@amplifi-labs/genets",
   "version": "0.0.1",
   "description": "Set of tools for optimizations based on genetic algorithms",
-  "main": "main.js",
+  "main": "dist/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "run-main": "ts-node src/main.ts"
+    "run-example": "ts-node example.ts",
+    "build": "tsc"
   },
   "keywords": [
     "AI",

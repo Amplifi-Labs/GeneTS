@@ -1,33 +1,17 @@
-# GeneTS
-Typescript Swiss Army Knife for Genetic Algorithms
-
-While searching for up to date libraries that fully supports TypeScript/types and based on a modern approach, nothing was found. This library goal is to fill this gap.
-
-For now this is a very basic implementation and improvements will be implmented. Feal free to help us to make it better!
-
-# Code sample
-
-~~~
-import {Interval} from "./Chromosome";
 import {
+  Interval,
   normalizedIndividual,
   processIndividualResult,
-} from "./Individual";
-import {
   buildMathParameters,
   createInitialPopulation,
   processNewGeneration,
   testPopulation,
-} from "./Population";
-import { shuffle } from "./Services";
+  shuffle,
+} from "./src/main";
 
 const init = new Date();
 
-let population = createInitialPopulation({
-  size: 200,
-  numberOfChromosomes: 3,
-  numberOfGenes: 16
-});
+let population = createInitialPopulation({size: 200, numberOfChromosomes: 3, numberOfGenes: 16});
 
 population = processNewGeneration({population});
 
@@ -52,8 +36,4 @@ for (let i = 0; i < 50; i += 1) {
 }
 
 console.log('time to process:', new Date().getTime() - init.getTime(), 'ms');
-
-const championParameters = buildMathParameters({individual: normalizedChampion});
-const result = processIndividualResult({formula, parameters: championParameters});
-console.log('normalizedChampion:', normalizedChampion, ', result:', result);
-~~~
+console.log('normalizedChampion:', normalizedChampion);
