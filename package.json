@@ -1,0 +1,28 @@
+{
+  "name": "genets",
+  "version": "0.0.1",
+  "description": "Set of tools for optimizations based on genetic algorithms",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run-main": "ts-node src/main.ts"
+  },
+  "keywords": [
+    "AI",
+    "genetic",
+    "algorithms",
+    "async",
+    "TypeScript"
+  ],
+  "author": "Paulo Rieck @ Amplifi Labs",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/fparser": "^2.0.0",
+    "@types/node": "^20.2.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "fparser": "^2.0.2"
+  }
+}
