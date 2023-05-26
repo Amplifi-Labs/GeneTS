@@ -13,9 +13,16 @@ import {
 
 const init = new Date();
 
-let population = createInitialPopulation({size: 200, numberOfChromosomes: 3, numberOfGenes: 16});
+let population = createInitialPopulation({
+  size: 200,
+  numberOfChromosomes: 3,
+  numberOfGenes: 16,
+});
 
-const mutations = {crossoverChances: 0.01, mutationChanges: 0.01};
+const mutations = {
+  crossoverChances: 0.01,
+  mutationChanges: 0.01,
+};
 
 const formula = 'a + b^2 - c^4';
 const interval: Interval = [-10, 10];
@@ -25,7 +32,11 @@ let normalizedChampion: number[] = [];
 let convergence = 100;
 let previousPopulationAverageResult: number | undefined;
 
-for (let i = 0; i < 50 && convergence > 0.000000001; i += 1) {
+for (
+  let i = 0;
+  i < 50 && convergence > 0.000000001;
+  i += 1
+) {
   population = processNewGeneration({population, ...mutations});
   population = testPopulation({population, formula, interval});
   const champion = population[0];
