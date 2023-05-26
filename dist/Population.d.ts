@@ -1,4 +1,4 @@
-import { Interval } from "./Chromosome";
+import { Chromosome, Interval } from "./Chromosome";
 import { Individual } from "./Individual";
 type Population = Individual[];
 declare const createInitialPopulation: ({ size, numberOfChromosomes, numberOfGenes, }: {
@@ -10,8 +10,18 @@ declare const normalizePopulation: ({ population, interval, }: {
     population: Population;
     interval: Interval;
 }) => number[][];
-declare const processNewGeneration: ({ population, }: {
+declare const applyCrossover: ({ chromosome, chances, }: {
+    chromosome: Chromosome;
+    chances: number;
+}) => Chromosome;
+declare const applyMutation: ({ chromosome, chances, }: {
+    chromosome: Chromosome;
+    chances: number;
+}) => Chromosome;
+declare const processNewGeneration: ({ population, crossoverChances, mutationChanges, }: {
     population: Population;
+    crossoverChances: number;
+    mutationChanges: number;
 }) => Population;
 declare const buildMathParameters: ({ individual, }: {
     individual: number[];
@@ -24,4 +34,13 @@ declare const testPopulation: ({ population, formula, interval, operation, }: {
     interval: Interval;
     operation?: 'maximize' | 'minimize';
 }) => Individual[];
-export { Population, createInitialPopulation, normalizePopulation, processNewGeneration, testPopulation, buildMathParameters, };
+declare const calculateConvergence: ({ a, b }: {
+    a: number;
+    b: number;
+}) => number;
+declare const calculatePopulationAverageResult: ({ population, interval, formula, }: {
+    population: Population;
+    interval: Interval;
+    formula: string;
+}) => number;
+export { Population, createInitialPopulation, normalizePopulation, processNewGeneration, testPopulation, buildMathParameters, applyCrossover, applyMutation, calculateConvergence, calculatePopulationAverageResult, };

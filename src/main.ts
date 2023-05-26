@@ -1,7 +1,31 @@
-import { Chromosome, Interval, chromosomeToFloat, chromosomeToInt, chromosomeToNormalizedFloat, generateChromosome } from "./Chromosome";
-import { Individual, createIndividual, normalizedIndividual, processIndividualResult } from "./Individual";
-import { Population, buildMathParameters, createInitialPopulation, normalizePopulation, processNewGeneration, testPopulation } from "./Population";
-import { shuffle } from "./Services";
+import {
+  Chromosome,
+  Interval,
+  chromosomeToFloat,
+  chromosomeToInt,
+  chromosomeToNormalizedFloat,
+  generateChromosome,
+} from "./Chromosome";
+
+import {
+  Individual,
+  createIndividual,
+  normalizedIndividual,
+  processIndividualResult,
+} from "./Individual";
+
+import {
+  Population,
+  buildMathParameters,
+  calculateConvergence,
+  calculatePopulationAverageResult,
+  createInitialPopulation,
+  normalizePopulation,
+  processNewGeneration,
+  testPopulation
+} from "./Population";
+
+import {shuffle} from "./Services";
 
 export {
   Interval,
@@ -21,4 +45,6 @@ export {
   testPopulation,
   buildMathParameters,
   shuffle,
+  calculatePopulationAverageResult,
+  calculateConvergence,
 };

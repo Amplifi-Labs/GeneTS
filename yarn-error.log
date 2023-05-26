@@ -1,0 +1,63 @@
+Arguments: 
+  /opt/homebrew/Cellar/node/19.8.1/bin/node /opt/homebrew/Cellar/yarn/1.22.19/libexec/bin/yarn.js install
+
+PATH: 
+  /Users/paulorieck/.deno/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:/opt/X11/bin:~/.dotnet/tools:/Library/Apple/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Users/paulorieck/.deno/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/paulorieck/.cargo/bin:/Users/paulorieck/development/Amplifi/ContentGuard/content-guard-only-fans-api-investigation:/Users/paulorieck/Library/Android/sdk/emulator:/Users/paulorieck/Library/Android/sdk/platform-tools:/Users/paulorieck/Library/Android/sdk/emulator:/Users/paulorieck/Library/Android/sdk/platform-tools
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  19.8.1
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/typescript: ESOCKETTIMEDOUT
+      at ClientRequest.<anonymous> (/opt/homebrew/Cellar/yarn/1.22.19/libexec/lib/cli.js:141517:19)
+      at Object.onceWrapper (node:events:626:28)
+      at ClientRequest.emit (node:events:512:28)
+      at TLSSocket.emitRequestTimeout (node:_http_client:840:9)
+      at Object.onceWrapper (node:events:626:28)
+      at TLSSocket.emit (node:events:524:35)
+      at Socket._onTimeout (node:net:580:8)
+      at listOnTimeout (node:internal/timers:573:17)
+      at process.processTimers (node:internal/timers:514:7)
+
+npm manifest: 
+  {
+    "name": "@amplifi-labs/genets",
+    "version": "0.0.1",
+    "description": "Set of tools for optimizations based on genetic algorithms",
+    "main": "dist/main.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "run-example": "ts-node example.ts",
+      "build": "tsc"
+    },
+    "keywords": [
+      "AI",
+      "genetic",
+      "algorithms",
+      "async",
+      "TypeScript"
+    ],
+    "author": "Paulo Rieck @ Amplifi Labs",
+    "license": "MIT",
+    "devDependencies": {
+      "@types/fparser": "^2.0.0",
+      "@types/node": "^20.2.3",
+      "ts-node": "^10.9.1",
+      "typescript": "^5.0.4"
+    },
+    "dependencies": {
+      "fparser": "^2.0.2"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

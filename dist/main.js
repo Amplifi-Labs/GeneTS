@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.shuffle = exports.buildMathParameters = exports.testPopulation = exports.processNewGeneration = exports.normalizePopulation = exports.createInitialPopulation = exports.processIndividualResult = exports.normalizedIndividual = exports.createIndividual = exports.chromosomeToNormalizedFloat = exports.chromosomeToFloat = exports.chromosomeToInt = exports.generateChromosome = void 0;
+exports.calculateConvergence = exports.calculatePopulationAverageResult = exports.shuffle = exports.buildMathParameters = exports.testPopulation = exports.processNewGeneration = exports.normalizePopulation = exports.createInitialPopulation = exports.processIndividualResult = exports.normalizedIndividual = exports.createIndividual = exports.chromosomeToNormalizedFloat = exports.chromosomeToFloat = exports.chromosomeToInt = exports.generateChromosome = void 0;
 const Chromosome_1 = require("./Chromosome");
 Object.defineProperty(exports, "chromosomeToFloat", { enumerable: true, get: function () { return Chromosome_1.chromosomeToFloat; } });
 Object.defineProperty(exports, "chromosomeToInt", { enumerable: true, get: function () { return Chromosome_1.chromosomeToInt; } });
@@ -12,6 +12,8 @@ Object.defineProperty(exports, "normalizedIndividual", { enumerable: true, get: 
 Object.defineProperty(exports, "processIndividualResult", { enumerable: true, get: function () { return Individual_1.processIndividualResult; } });
 const Population_1 = require("./Population");
 Object.defineProperty(exports, "buildMathParameters", { enumerable: true, get: function () { return Population_1.buildMathParameters; } });
+Object.defineProperty(exports, "calculateConvergence", { enumerable: true, get: function () { return Population_1.calculateConvergence; } });
+Object.defineProperty(exports, "calculatePopulationAverageResult", { enumerable: true, get: function () { return Population_1.calculatePopulationAverageResult; } });
 Object.defineProperty(exports, "createInitialPopulation", { enumerable: true, get: function () { return Population_1.createInitialPopulation; } });
 Object.defineProperty(exports, "normalizePopulation", { enumerable: true, get: function () { return Population_1.normalizePopulation; } });
 Object.defineProperty(exports, "processNewGeneration", { enumerable: true, get: function () { return Population_1.processNewGeneration; } });

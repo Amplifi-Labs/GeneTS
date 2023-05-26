@@ -38,10 +38,62 @@ const normalizePopulation = ({
   return array;
 }
 
+const applyCrossover = ({
+  chromosome,
+  chances,
+}: {
+  chromosome: Chromosome;
+  chances: number;
+}) => {
+  // First of all, roll the dices to determine if crossover will happen
+  if (Math.random() > chances) {
+    return chromosome;
+  }
+
+  // console.log('Applying crossover!');
+
+  // Now it is time to roll the dices again to determine where the crossover should occur
+  const position1 = Math.round(chromosome.length * Math.random());
+  const position2 = Math.round(chromosome.length * Math.random());
+
+  const position1Gene = chromosome[position1];
+  const position2Gene = chromosome[position2];
+
+  chromosome[position1] = position2Gene;
+  chromosome[position2] = position1Gene;
+
+  return chromosome;
+}
+
+const applyMutation = ({
+  chromosome,
+  chances,
+}: {
+  chromosome: Chromosome;
+  chances: number;
+}) => {
+  // First of all, roll the dices to determine if mutation will happen
+  if (Math.random() > chances) {
+    return chromosome;
+  }
+
+  // console.log('Applying mutation!');
+
+  // Now it is time to roll the dices again to determine where the mutation should occur
+  const position = Math.round(chromosome.length * Math.random());
+  chromosome[position] = chromosome[position] === 1 ? 0 : 1;
+
+  return chromosome;
+}
+
 const processNewGeneration = ({
   population,
+  crossoverChances,
+  mutationChanges,
 }: {
   population: Population;
+  crossoverChances: number;
+  mutationChanges: number;
 }) => {
   const array: Population = [];
   for (let i = 0; i < population.length; i += 2) {
@@ -51,14 +103,25 @@ const processNewGeneration = ({
 
       // Process each chromosome
       for (let k = 0; k < population[i].length; k += 1) {
-        const newChromosome: Chromosome = [];
+        let chromosome: Chromosome = [];
         for (let l = 0; l < population[i][k].length; l += 1) {
           // Roll the dices to determine if genes are coming from father or mother
-          const newGene = Math.random() > 0.5 ? population[i][k][l] : population[i+1][k][l];
-          newChromosome.push(newGene);
+          const newGene = Math.random() > 0.5
+            ? population[i][k][l] 
+            : population[i+1][k][l];
+
+          chromosome.push(newGene);
         }
-        newIndividual.push(newChromosome);
+
+        // Apply crossover
+        chromosome = applyCrossover({chromosome, chances: crossoverChances});
+
+        // Apply mutation
+        chromosome = applyMutation({chromosome, chances: mutationChanges});
+
+        newIndividual.push(chromosome);
       }
+      
       array.push(newIndividual);
     } 
   }
@@ -112,6 +175,31 @@ const testPopulation = ({
   return survivors.map((individual) => (individual.individual));
 }
 
+const calculateConvergence = ({a, b}: {a: number; b: number;}) => {
+  return Math.abs(a - b);
+};
+
+const calculatePopulationAverageResult = ({
+  population,
+  interval,
+  formula,
+}: {
+  population: Population;
+  interval: Interval;
+  formula: string;
+}) => {
+  let resultSum = 0;
+  const normalizedPopulation = normalizePopulation({population, interval});
+  for (let i = 0; i < population.length; i += 1) {
+    // Build object to evaluate the equation
+    const parameters = buildMathParameters({individual: normalizedPopulation[i]});
+
+    resultSum += processIndividualResult({formula, parameters});
+  }
+
+  return resultSum/normalizedPopulation.length;
+}
+
 export {
   Population,
   createInitialPopulation,
@@ -119,4 +207,8 @@ export {
   processNewGeneration,
   testPopulation,
   buildMathParameters,
+  applyCrossover,
+  applyMutation,
+  calculateConvergence,
+  calculatePopulationAverageResult,
 }

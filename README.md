@@ -17,21 +17,26 @@ import {
   processNewGeneration,
   testPopulation,
   shuffle,
+  calculatePopulationAverageResult,
+  calculateConvergence,
 } from "./src/main";
 
 const init = new Date();
 
 let population = createInitialPopulation({size: 200, numberOfChromosomes: 3, numberOfGenes: 16});
 
-population = processNewGeneration({population});
+const mutations = {crossoverChances: 0.01, mutationChanges: 0.01};
 
 const formula = 'a + b^2 - c^4';
 const interval: Interval = [-10, 10];
 
 let normalizedChampion: number[] = [];
 
-for (let i = 0; i < 50; i += 1) {
-  population = processNewGeneration({population});
+let convergence = 100;
+let previousPopulationAverageResult: number | undefined;
+
+for (let i = 0; i < 50 && convergence > 0.000000001; i += 1) {
+  population = processNewGeneration({population, ...mutations});
   population = testPopulation({population, formula, interval});
   const champion = population[0];
 
@@ -39,10 +44,23 @@ for (let i = 0; i < 50; i += 1) {
   normalizedChampion = normalizedIndividual({individual: champion, interval });
   const championParameters = buildMathParameters({individual: normalizedChampion});
   const result = processIndividualResult({formula, parameters: championParameters});
-  console.log('generation: ', i, ', result for champion:', result);
+  const populationAverageResult = calculatePopulationAverageResult({population, formula, interval});
+  if (previousPopulationAverageResult) {
+    convergence = calculateConvergence({a: populationAverageResult, b: previousPopulationAverageResult})
+  }
+
+  console.log('----------------------------------------------------');
+  console.log(
+    `generation: ${i},\n`+
+    `result for champion: ${result},\n`+
+    `convergence: ${convergence},\n`+
+    `populationAverageResult: ${populationAverageResult}`
+  );
   /* ------------------------- */
 
   population = shuffle(population);
+
+  previousPopulationAverageResult = populationAverageResult;
 }
 
 console.log('time to process:', new Date().getTime() - init.getTime(), 'ms');
