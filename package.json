@@ -1,6 +1,6 @@
 {
   "name": "@amplifi-labs/genets",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Set of tools for optimizations based on genetic algorithms",
   "main": "dist/main.js",
   "scripts": {
