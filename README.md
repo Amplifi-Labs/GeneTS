@@ -9,7 +9,7 @@ For now this is a very basic implementation and improvements will be implemented
 
 ## Genetic Algorithms
 
-It's a method for solving optimization problems. It is based on the natural concept of evolution. The same concepts of natural selection are applied to improve a population of individuals based on predefined criteria, i.e. a mathematical equation. Is it commonly applied to find maximums or minimums that fits better on predefined conditions. It makes totally sense to use Genetic Algorithms when the number of variables is high, making it hard (or even impossible) to solve the maximum (or minimum) of an equation by analytical methods.
+It's a [Numerical Analysis](https://en.wikipedia.org/wiki/Numerical_analysis) for solving optimization problems. It is based on the natural concept of evolution. The same concepts of natural selection are applied to improve a population of individuals based on predefined criteria, i.e. a mathematical equation. Is it commonly applied to find maximums or minimums that fits better on predefined conditions. It makes totally sense to use Genetic Algorithms when the number of variables is high, making it hard (or even impossible) to solve the maximum (or minimum) of an equation by analytical methods.
 
 ## Gene
 
