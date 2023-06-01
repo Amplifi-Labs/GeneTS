@@ -1,7 +1,7 @@
 # GeneTS
-Typescript Swiss Army Knife for Genetic Algorithms
+Typescript Swiss Army Knife for [Genetic Algorithms](https://en.wikipedia.org/wiki/Genetic_algorithm)
 
-While searching for up to date libraries that fully supports TypeScript/types and based on a modern approach, nothing was found. This library goal is to fill this gap.
+While searching for up to date libraries that fully supports [TypeScript](https://www.typescriptlang.org)/types and based on a modern approach, nothing was found. This library goal is to fill this gap.
 
 For now this is a very basic implementation and improvements will be implemented. Feal free to help us to make it better!
 
@@ -150,3 +150,5 @@ console.log('normalizedChampion:', normalizedChampion);
 # Amplifi Labs
 
 Amplifi Labs is a software boutique located in the USA, North Carolina. We create applications for a vast number of cases, including mobile and web. We have a highly capable team, that is able to work with highly complex problems, including Natural Language Processing, Machine Learning, Genetic Algorithms and more!
+
+If you need any help on implementing such kind of computer program, please, don't hesitate to contact us!
