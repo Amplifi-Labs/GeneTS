@@ -1,4 +1,6 @@
-![](https://raw.githubusercontent.com/Amplifi-Labs/GeneTS/main/assets/GeneTS_Banner.png)
+<div style="background-color:white; text-align:center; vertical-align: middle; padding:0 0;">
+  <img src="https://raw.githubusercontent.com/Amplifi-Labs/GeneTS/main/assets/GeneTS_Banner.png">
+</div>
 
 # GeneTS
 Typescript Swiss Army Knife for [Genetic Algorithms](https://en.wikipedia.org/wiki/Genetic_algorithm)
