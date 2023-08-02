@@ -1,3 +1,5 @@
+![](https://raw.githubusercontent.com/Amplifi-Labs/GeneTS/main/assets/GeneTS_Banner.png)
+
 # GeneTS
 Typescript Swiss Army Knife for [Genetic Algorithms](https://en.wikipedia.org/wiki/Genetic_algorithm)
 
